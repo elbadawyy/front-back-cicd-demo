@@ -30,6 +30,10 @@ jobs:
       - run:
           name: Backend build
           command: |
+            cp -R .elasticbeanstalk ./udagram-api
+      - run:
+          name: Backend build
+          command: |
             npm run api:build
       - run:
           name: Backend Deploy
