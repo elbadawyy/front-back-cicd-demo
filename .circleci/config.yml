@@ -26,7 +26,6 @@ jobs:
             echo $(node --version)
             echo "NPM --version" 
             echo $(npm --version)
-            npm run frontend:install
           # install dependencies in both apps
       - run:
           name: Backend build
