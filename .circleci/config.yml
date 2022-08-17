@@ -1,4 +1,8 @@
 version: 2.1
+filters:
+      branches:
+        only:
+          - main
 orbs:
   # orgs contain basc recipes and reproducible actions (install node, aws, etc.)
   node: circleci/node@5.0.2
@@ -7,10 +11,7 @@ orbs:
   # different jobs are calles later in the workflows sections
 jobs:
   build:
-    filters:
-      branches:
-        only:
-          - main
+          
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
