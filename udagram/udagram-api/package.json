@@ -12,7 +12,7 @@
     "dev": "npx ts-node-dev --respawn --transpileOnly ./src/server.ts",
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "deploy": "npm run build && eb setenv POSTGRES_USERNAME=postgres POSTGRES_PASSWORD=postgres POSTGRES_DB=postgres_db PORT=3000 DB_PORT=5432 POSTGRES_HOST=database-1.caljpwda0ato.us-east-1.rds.amazonaws.com JWT_SECRET=mysecret AWS_DEFAULT_REGION=us-east-1  AWS_SECRET_ACCESS_KEY=I498n/2PRpav0m4Jc7SMR2ASQs4rNuh6uF/jsKd1 AWS_ACCESS_KEY_ID=AKIAXC6E3JCEX6OE7XIO && eb list && eb use udagram-api2-dev2 && eb deploy && ls -a",
+    "deploy": "npm run build  && eb list && eb use udagram-api2-dev2 && eb setenv POSTGRES_USERNAME=postgres POSTGRES_PASSWORD=postgres POSTGRES_DB=postgres_db PORT=3000 DB_PORT=5432 POSTGRES_HOST=database-1.caljpwda0ato.us-east-1.rds.amazonaws.com JWT_SECRET=mysecret AWS_DEFAULT_REGION=us-east-1  AWS_SECRET_ACCESS_KEY=I498n/2PRpav0m4Jc7SMR2ASQs4rNuh6uF/jsKd1 AWS_ACCESS_KEY_ID=AKIAXC6E3JCEX6OE7XIO && eb deploy && ls -a",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
